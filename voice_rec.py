@@ -5,7 +5,7 @@ def recognizer():
     with sp.Microphone() as source:
         print("say sth")
         audio = rec.listen(source)
-        
+    
     try: 
         return rec.recognize_google(audio)
     except sp.UnknownValueError:
@@ -15,4 +15,5 @@ def recognizer():
 
 
 if __name__ == "__main__":
-    print(recognizer())
+    while recognizer() != "close":
+        print(recognizer())
